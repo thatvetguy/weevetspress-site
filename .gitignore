@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+dist/
+
+# Never commit business records or print files from the ColoringBooks project.
+*.pdf
+*.zip
