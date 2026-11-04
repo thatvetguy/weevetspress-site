@@ -30,7 +30,8 @@ The ColoringBooks root holds the owner's private business records (every PDF and
 Owned: `weevetspress.com`, `weevets.com`, `weevetpress.com`, `weevet.com`. Credentials are kept outside every project.
 
 - `weevetspress.com` is the main address (owner, November 4, 2026). All four domains are registered at Cloudflare and use Cloudflare DNS, in the account the owner signs in to.
-- weevetspress.com: GitHub Pages records, proxy **off** (gray cloud) so GitHub can issue the HTTPS certificate. Four A records (185.199.108–111.153), four AAAA (2606:50c0:8000–8003::153), `www` CNAME to `thatvetguy.github.io`.
+- weevetspress.com: GitHub Pages records, proxy **on** (orange cloud). Four A records (185.199.108–111.153), four AAAA (2606:50c0:8000–8003::153), `www` CNAME to `thatvetguy.github.io`. SSL/TLS mode pinned to **Full** (not Automatic, not Full Strict, not Flexible), and "Always Use HTTPS" is on. The lock icon is Cloudflare's certificate.
+- Why proxied: on November 4, 2026, GitHub's certificate request sat at "new" for over two hours, even after removing and re-adding the domain, while its health check said the domain was eligible. So Cloudflare serves HTTPS instead. GitHub's "Enforce HTTPS" stays off; turning it on is unnecessary here and won't work while the proxy is on. Never switch the mode to Flexible.
 - weevets.com, weevetpress.com, weevet.com: two placeholder AAAA records (`@` and `www` to `100::`), proxy **on**, plus one Redirect Rule each ("Forward to weevetspress.com": all requests, 301 to `concat("https://weevetspress.com", http.request.uri.path)`, query string kept).
 
 ## Hosting
