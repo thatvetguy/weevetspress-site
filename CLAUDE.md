@@ -29,11 +29,13 @@ The ColoringBooks root holds the owner's private business records (every PDF and
 
 Owned: `weevetspress.com`, `weevets.com`, `weevetpress.com`, `weevet.com`. Credentials are kept outside every project.
 
-- Proposed: `weevetspress.com` is the main address; the other three forward to it. **Not yet decided by the owner.**
+- `weevetspress.com` is the main address (owner, November 4, 2026). All four domains are registered at Cloudflare and use Cloudflare DNS, in the account the owner signs in to.
+- weevetspress.com: GitHub Pages records, proxy **off** (gray cloud) so GitHub can issue the HTTPS certificate. Four A records (185.199.108–111.153), four AAAA (2606:50c0:8000–8003::153), `www` CNAME to `thatvetguy.github.io`.
+- weevets.com, weevetpress.com, weevet.com: two placeholder AAAA records (`@` and `www` to `100::`), proxy **on**, plus one Redirect Rule each ("Forward to weevetspress.com": all requests, 301 to `concat("https://weevetspress.com", http.request.uri.path)`, query string kept).
 
-## Hosting (proposed, not yet decided)
+## Hosting
 
-GitHub Pages under the `thatvetguy` account, like the other SASI sites (`smallanimalsurgeries-site`, `1099work-site`, `pettoxic-website`). A `CNAME` file holds the custom domain. Static HTML and CSS unless the site grows enough to need a build step.
+GitHub Pages under the `thatvetguy` account (repo `thatvetguy/weevetspress-site`, public), built from `main`, root folder, like the other SASI sites. The `CNAME` file holds the custom domain; GitHub created it, so never delete it. Static HTML and CSS unless the site grows enough to need a build step.
 
 Relevant gotchas in `~/Developer/SASI_Projects/Gotchas_CrossApp.md`:
 - **GC-SITE-001:** GitHub Pages is case-sensitive. Match file-name casing exactly in HTML and CSS.
