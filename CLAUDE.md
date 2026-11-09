@@ -15,7 +15,7 @@ Everything about the books is in the ColoringBooks project: `~/Developer/Codex/C
 
 ## What's in this repo
 
-- `index.html`: home page (hero shelf of all seven covers, what's inside, one entry per book, about). Books 1–6 link to Amazon (links from the owner, November 3, 2026). Book 7 shows "Coming soon" until it is live.
+- `index.html`: home page (hero shelf of all seven covers, what's inside, one entry per book, about). All seven books link to Amazon (Books 1–6 links from the owner November 3, 2026; Book 7 November 9, 2026).
 - `sources.html`: built by `python3 tools/build_sources.py` from the facts files. Never hand-edit the part between the `SOURCES:START` and `SOURCES:END` markers. `--check` reports whether it is up to date. When a facts file gets a new version, update `BOOKS` in the script and rebuild.
 - `images/covers/`: 720 px wide copies of each book's listing JPG. `images/wee-vets-press-logo.png`: the logo cut from Book 7's cover (concept 02 of the ColoringBooks logo set).
 - Fonts: Young Serif (headings) and Noto Sans (body, the same family as the book interiors), from Google Fonts.
